@@ -33,9 +33,10 @@ sel_features <- grep(".*mean.*|.*std.*", features)
 # -- remove non-alphabetic characters e.g, -, (, ), and comma(,)
 names(sel_features) <- lapply( features[sel_features], 
                     function (x) {
-                        y <- tolower(x)
-                        y <- trimws(y, which="both")
+                        y <- trimws(x, which="both")
                         y <- gsub('-|,|\\(|\\)','', y)
+                        y <- sub('mean', 'Mean', y)
+                        y <- sub('std', 'Std', y)
                     }
                    )
 
@@ -52,7 +53,7 @@ names(strain) <- "subject"
 train <- cbind(xtrain, ytrain, strain)
 
 # read test data set
-xtest <- read.table("Dataset/test//X_test.txt")[sel_features]
+xtest <- read.table("Dataset/test/X_test.txt")[sel_features]
 names(xtest) <- names(sel_features)
 ytest <- read.table("Dataset/test/y_test.txt")
 names(ytest) <- "activity"
