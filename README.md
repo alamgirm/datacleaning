@@ -26,6 +26,7 @@ the following tasks:
 8. The second dataset is written into disk.  
 
 _Folder/file structure:_
+
 --Dataset/
 --CleanDataset/
 --CleanDataset/clean_data.txt
