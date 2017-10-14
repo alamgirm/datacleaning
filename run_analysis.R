@@ -75,7 +75,7 @@ clean_data$activity <- factor(clean_data$activity, levels = act_labels[,1], labe
 clean_data$subject <- as.factor(clean_data$subject)
 
 # write the data to disk
-write.table(clean_data, "CleanDataset/tidy_data.txt", row.names = FALSE, quote = FALSE)
+write.table(clean_data, "CleanDataset/clean_data.txt", row.names = FALSE, quote = FALSE)
 
 # step 5 of project task
 melted_data <- melt(clean_data, id = c("subject", "activity"))
